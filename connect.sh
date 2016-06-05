@@ -66,7 +66,7 @@ function connect()
             #
             # If not found in $names, the list of available servers is shown.
             #
-            echo "Cannot Find The Server Name"
+            echo "Cannot Find The Server Named $1"
         fi
     fi
 
@@ -84,3 +84,21 @@ function connect()
 }
 
 
+function sanity_checks() 
+{
+    #
+    # Checks if config file exists
+    #
+    [[ ! -f $CONFIG_FILE ]] && echo "Cannot Find Config File, $CONFIG_FILE" && exit 1
+    # 
+    # Checks if the key files directory exists.
+    #
+    [[ ! -d $KEY_FILE_PREFIXES ]] && echo "Cannot Find Key File Directory, $KEY_FILE_PREFIXES
+    " && exit 1
+
+    #
+    # This is required to set the exit status of this function correctly.
+    # TODO : Another alternative is to have a different exit codes on when the files are not found.
+    #
+    echo "Config File and Key Files Located SuccessFully" > /dev/null
+}
