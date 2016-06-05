@@ -10,7 +10,11 @@ CONFIG_FILE="./config"
 #
 KEY_FILE_PREFIXES="/Users/johny/programs/sshKeys/"
 
-
+#
+# Error Codes
+#
+NO_CONFIG_FILE=100
+NO_KEY_DIR=101
 
 #
 # Arrays which store the basic configurations.
@@ -83,22 +87,23 @@ function connect()
     done
 }
 
-
+#
+# Does the sanity checks to see if files exists before the script has to be excecuted.
+#
 function sanity_checks() 
 {
     #
     # Checks if config file exists
     #
-    [[ ! -f $CONFIG_FILE ]] && echo "Cannot Find Config File, $CONFIG_FILE" && exit 1
+    [[ ! -f $CONFIG_FILE ]] && echo "Cannot Find Config File, $CONFIG_FILE" && exit $NO_CONFIG_FILE
     # 
     # Checks if the key files directory exists.
     #
     [[ ! -d $KEY_FILE_PREFIXES ]] && echo "Cannot Find Key File Directory, $KEY_FILE_PREFIXES
-    " && exit 1
+    " && $NO_KEY_DIR
 
     #
     # This is required to set the exit status of this function correctly.
-    # TODO : Another alternative is to have a different exit codes on when the files are not found.
     #
     echo "Config File and Key Files Located SuccessFully" > /dev/null
 }
