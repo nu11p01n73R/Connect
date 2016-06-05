@@ -24,3 +24,6 @@ fi
 
 echo "Creating link /usr/bin/connect to $(pwd)/$FILE_NAME"
 ln -s "$(pwd)/$FILE_NAME" /usr/bin/connect
+
+echo "Creating Config File"
+cp config_dummy config
