@@ -83,10 +83,15 @@ function connect()
     echo "Select Server Name To Connect To"
     select name in ${names[@]}
     do
-        echo "Initiating ssh connection to $name"
-        echo "=========================================="
-        ssh -i $KEY_FILE_PREFIXES${keys[$name]} ${usernames[$name]}@${ips[$name]}
-        exit 0
+        if [[ $name =~ ^$ ]] 
+        then
+            echo "Invalid option"
+        else
+            echo "Initiating ssh connection to $name"
+            echo "=========================================="
+            ssh -i $KEY_FILE_PREFIXES${keys[$name]} ${usernames[$name]}@${ips[$name]}
+            exit 0
+        fi
     done
 }
 
