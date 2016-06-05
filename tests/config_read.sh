@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./connect.sh
+source $SOURCE_FILE
 
 # Test reading config file.
 read_config_file
@@ -10,7 +10,7 @@ echo "Config file read successfully"
 # Prints the read config file 
 echo "Server Names"
 echo "==============="
-for name in $names
+for name in ${names[@]}
 do
     echo -e "\tName: \t$name"
     echo -e "\tKey: \t${keys[$name]}"
