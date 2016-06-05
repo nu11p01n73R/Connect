@@ -64,6 +64,8 @@ function connect()
             #
             # Connects to Server if found in the $names.
             #
+            echo "Initiating ssh connection to $1"
+            echo "=========================================="
             ssh -i $KEY_FILE_PREFIXES${keys[$1]} ${usernames[$1]}@${ips[$1]}
             exit 0
         else
@@ -71,6 +73,7 @@ function connect()
             # If not found in $names, the list of available servers is shown.
             #
             echo "Cannot Find The Server Named $1"
+            echo
         fi
     fi
 
