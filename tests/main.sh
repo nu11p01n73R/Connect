@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 cd ..
 export SOURCE_FILE="./connect.sh"

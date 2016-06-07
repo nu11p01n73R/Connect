@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 #
 # Location of config file.
@@ -20,9 +20,9 @@ NO_KEY_DIR=101
 # Arrays which store the basic configurations.
 #
 names=()
-keys=()
-usernames=()
-ips=()
+declare -A keys
+declare -A usernames
+declare -A ips
 
 #
 # Read configurations from the config file.
@@ -48,7 +48,7 @@ function read_config_file()
 #
 function connect()
 {
-    if [[ -nz $1 ]] 
+    if [[ -n "$1" ]] 
     then
         #
         # Regex to match server name in the $names array.
@@ -65,6 +65,7 @@ function connect()
             # Connects to Server if found in the $names.
             #
             echo "Initiating ssh connection to $1"
+            echo "Using command : ssh -i $KEY_FILE_PREFIXES${keys[$1]} ${usernames[$1]}@${ips[$1]}"
             echo "=========================================="
             ssh -i $KEY_FILE_PREFIXES${keys[$1]} ${usernames[$1]}@${ips[$1]}
             exit 0
@@ -88,6 +89,7 @@ function connect()
             echo "Invalid option"
         else
             echo "Initiating ssh connection to $name"
+            echo "Using command : ssh -i $KEY_FILE_PREFIXES${keys[$name]} ${usernames[$name]}@${ips[$name]}"
             echo "=========================================="
             ssh -i $KEY_FILE_PREFIXES${keys[$name]} ${usernames[$name]}@${ips[$name]}
             exit 0
