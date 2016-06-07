@@ -3,7 +3,7 @@
 #
 # Location of config file.
 #
-CONFIG_FILE="./config"
+CONFIG_FILE="${CONNECT_PATH}/config"
 
 #
 # Location of key files.
