@@ -15,7 +15,7 @@ fi
 #
 # Entry script to the connect command.
 #
-SOURCE_FILE="${CONNECT_PATH}connect.sh"
+SOURCE_FILE="${CONNECT_PATH}/connect.sh"
 
 
 #
