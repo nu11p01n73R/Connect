@@ -27,3 +27,6 @@ ln -s "$(pwd)/$FILE_NAME" /usr/bin/connect
 
 echo "Creating Config File"
 cp config_dummy config
+
+echo -e "# Path to the connect command source \nexport CONNECT_PATH="$(pwd) >> ~/.profile
+
