@@ -38,6 +38,14 @@ blog        blog.pem        ec2-user    1.1.1.1
 
 The lines with start with `#` are ignored.
 
+If `connect` reports `CONNECT_PATH` issues, you will have to run,
+
+
+```
+export CONNECT_PATH=~/programs/path/to/Connect/
+```
+
+Add the above line in the profiles so it runs on start up.
 
 #Usage
 
