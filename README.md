@@ -48,7 +48,7 @@ export CONNECT_PATH=~/programs/path/to/Connect/
 Add the above line in the profiles so it runs on start up.
 
 By default all the ssh key should be present in the sskKeys directory 
-In case the location to be changed,
+If wish to change the location,
 
 ```
 export KEY_FILE_PREFIXES=<PATH TO THE SSH KEY DIRECTORY>
