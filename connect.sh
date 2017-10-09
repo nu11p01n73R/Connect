@@ -22,9 +22,9 @@ NO_KEY_DIR=101
 # Arrays which store the basic configurations.
 #
 names=()
-declare -a keys
-declare -a usernames
-declare -a ips
+declare -A keys
+declare -A usernames
+declare -A ips
 
 
 #
