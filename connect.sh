@@ -7,8 +7,10 @@ CONFIG_FILE="${CONNECT_PATH}/config"
 
 #
 # Location of key files.
+# if KEY_FILE_PREFIXES is not set in ENV
+# All the key file should be kept in sshKeys directory 
 #
-KEY_FILE_PREFIXES="/Users/johny/programs/sshKeys/"
+[[ -z $KEY_FILE_PREFIXES ]] && KEY_FILE_PREFIXES="${CONNECT_PATH}/sshKeys/"
 
 #
 # Error Codes
@@ -23,6 +25,7 @@ names=()
 declare -A keys
 declare -A usernames
 declare -A ips
+
 
 #
 # Read configurations from the config file.
